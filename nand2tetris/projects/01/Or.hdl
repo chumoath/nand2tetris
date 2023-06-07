@@ -15,7 +15,17 @@ CHIP Or {
 
     PARTS:
     // Put your code here:
-    Not (in=a, out=nota);
-    Not (in=b, out=notb);
-    Nand (a=nota, b=notb, out=out);
+    // Not (in=a, out=nota);
+    // Not (in=b, out=notb);
+    // Nand (a=nota, b=notb, out=out);
+	// 0 0 0
+	// 0 1 1
+	// 1 0 1
+	// 1 1 1
+    // Not(x Or y) = Not(x) And Not(y)
+	// x Or y = Not (Not(x) And Not(y))
+	Not (in=a, out=Nota);
+	Not (in=b, out=Notb);
+	And (a=Nota, b=Notb, out=NotaAndNotb);
+	Not (in=NotaAndNotb, out=out);
 }
